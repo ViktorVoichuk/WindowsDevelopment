@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinAPI", "WinAPI\WinAPI.vcxproj", "{5DC16FDA-E6DA-4390-85E6-177022267F07}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComboBox", "ComboBox\ComboBox.vcxproj", "{22E1A487-0724-4E57-A086-A89D31F3B007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{5DC16FDA-E6DA-4390-85E6-177022267F07}.Release|x64.Build.0 = Release|x64
 		{5DC16FDA-E6DA-4390-85E6-177022267F07}.Release|x86.ActiveCfg = Release|Win32
 		{5DC16FDA-E6DA-4390-85E6-177022267F07}.Release|x86.Build.0 = Release|Win32
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Debug|x64.ActiveCfg = Debug|x64
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Debug|x64.Build.0 = Debug|x64
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Debug|x86.ActiveCfg = Debug|Win32
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Debug|x86.Build.0 = Debug|Win32
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Release|x64.ActiveCfg = Release|x64
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Release|x64.Build.0 = Release|x64
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Release|x86.ActiveCfg = Release|Win32
+		{22E1A487-0724-4E57-A086-A89D31F3B007}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
