@@ -1,6 +1,10 @@
 ﻿#include <windows.h>
 #include "resource.h"
 
+CONST CHAR g_sz_LOGIN_INVITATION[] = "Введите имя пользователя";
+CONST CHAR g_sz_PASSWORD_INVITATION[] = "Введите пароль";
+
+//Процедура окна
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 //Точка входа в систему
@@ -45,18 +49,57 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	switch (uMsg)
 	{
-	case WM_INITDIALOG: //это сообщение отправляется один раз при инициализации окна
-		break;
+	case WM_INITDIALOG://это сообщение отправляется один раз при инициализации окна
+	{
+		HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
+		SendMessage(hEditLogin, WM_SETTEXT, 0, (LPARAM)g_sz_LOGIN_INVITATION);
+		HWND hEditPassword = GetDlgItem(hwnd, IDC_EDIT_PASSWORD);
+		SendMessage(hEditPassword, WM_SETTEXT, 0, (LPARAM)g_sz_PASSWORD_INVITATION);
+	}
+	break;
 	case WM_COMMAND:	//обрабатывает нажатие кнопок и другие действия пользователя
 		//ResourceID
 		switch (LOWORD(wParam))
 		{
+			//strcmp - сравнивает строки. Возвращает int. 0 - строки равны. !0 - строки не равны
+		case IDC_EDIT_LOGIN:
+		{
+			CONST INT SIZE = 256;
+			CHAR sz_buffer[SIZE]{};
+			SendMessage((HWND)lParam, WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
+			if (HIWORD(wParam) == EN_SETFOCUS && strcmp(sz_buffer, g_sz_LOGIN_INVITATION) == 0)
+			{
+				SendMessage((HWND)lParam, WM_SETTEXT, 0, (LPARAM)"");
+			}
+			if (HIWORD(wParam) == EN_KILLFOCUS && strcmp(sz_buffer, "") == 0)
+			{
+				SendMessage((HWND)lParam, WM_SETTEXT, 0, (LPARAM)g_sz_LOGIN_INVITATION);
+			}
+		}
+		break;
+
+		case IDC_EDIT_PASSWORD:
+		{
+			CONST INT SIZE = 256;
+			CHAR sz_buffer[SIZE]{};
+			SendMessage((HWND)lParam, WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
+			if (HIWORD(wParam) == EN_SETFOCUS && strcmp(sz_buffer, g_sz_PASSWORD_INVITATION) == 0)
+			{
+				SendMessage((HWND)lParam, WM_SETTEXT, 0, (LPARAM)"");
+			}
+			if (HIWORD(wParam) == EN_KILLFOCUS && strcmp(sz_buffer, "") == 0)
+			{
+				SendMessage((HWND)lParam, WM_SETTEXT, 0, (LPARAM)g_sz_PASSWORD_INVITATION);
+			}
+		}
+		break;
+
 		case IDC_BUTTON_COPY:
 		{
 			// Создаем буфер
 			CONST INT SIZE = 256;
 			CHAR sz_buffer[SIZE] = {}; //sz - String Zero (NULL Terminated Line - C-string)
-			
+
 			//получаем обработчики текстовых полей
 			HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
 			HWND hEditPassword = GetDlgItem(hwnd, IDC_EDIT_PASSWORD);
