@@ -1,4 +1,4 @@
-//ListBox
+п»ї//ListBox
 //#define _CRT_SECURE_NO_WARNINGS
 #include <windows.h>
 #include <stdio.h>
@@ -42,11 +42,11 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			CONST INT SIZE = 256;
 			CHAR sz_buffer[SIZE] = {};
 			SendMessage(hCombo, LB_GETTEXT, i, (LPARAM)sz_buffer);
-			CHAR sz_message[SIZE] = "Вы ничего не выбрали.";
+			CHAR sz_message[SIZE] = "Р’С‹ РЅРёС‡РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё.";
 			if (i != LB_ERR)
-				sprintf(sz_message, "Вы выбрали пункт № %i со значением \"%s\"", i, (LPARAM)sz_buffer);
-			//sprintf - выполняет форматирование строк, позволяет вставить в строку
-			//Спецификаторы %i - это целое число, %s - строка
+				sprintf(sz_message, "Р’С‹ РІС‹Р±СЂР°Р»Рё РїСѓРЅРєС‚ в„– %i СЃРѕ Р·РЅР°С‡РµРЅРёРµРј \"%s\"", i, (LPARAM)sz_buffer);
+			//sprintf - РІС‹РїРѕР»РЅСЏРµС‚ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂРѕРє, РїРѕР·РІРѕР»СЏРµС‚ РІСЃС‚Р°РІРёС‚СЊ РІ СЃС‚СЂРѕРєСѓ
+			//РЎРїРµС†РёС„РёРєР°С‚РѕСЂС‹ %i - СЌС‚Рѕ С†РµР»РѕРµ С‡РёСЃР»Рѕ, %s - СЃС‚СЂРѕРєР°
 			MessageBox(hwnd, sz_message, "Info", MB_OK | MB_ICONINFORMATION);
 		}
 		break;
@@ -80,7 +80,7 @@ BOOL CALLBACK DlgProcAdd(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			if (SendMessage(hListBox, LB_FINDSTRING, -1, (LPARAM)sz_buffer) == LB_ERR)
 				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)sz_buffer);
 			else
-				MessageBox(hwnd, "Такое поле уже существует", "Info", MB_OK | MB_ICONINFORMATION);
+				MessageBox(hwnd, "РўР°РєРѕРµ РїРѕР»Рµ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚", "Info", MB_OK | MB_ICONINFORMATION);
 		}
 			
 		case IDCANCEL:
