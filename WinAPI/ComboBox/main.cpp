@@ -1,7 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <Windows.h>
 #include <stdio.h>
-//#include <wchar.h>
 #include "resource.h"
 
 CONST CHAR* g_COMBO_BOX_ITEMS[] = { "This","is","my","First","Combo","Box" };
@@ -53,7 +52,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 		break;
 
-		break;
+		
 	case WM_CLOSE:
 		EndDialog(hwnd, 0);
 	}
