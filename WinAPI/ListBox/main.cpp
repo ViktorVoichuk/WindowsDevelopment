@@ -87,7 +87,7 @@ BOOL CALLBACK DlgProcAdd(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			HWND hParent = GetParent(hwnd);
 			HWND hListBox = GetDlgItem(hParent, IDC_LIST1);
 			if (strcmp(sz_buffer,"")==0)
-				MessageBox(hwnd, "Вы пытаетесь ввести пустую строку", "Info", MB_OK | MB_ICONINFORMATION);
+				MessageBox(hwnd, "Вы пытаетесь добавить пустую строку", "Info", MB_OK | MB_ICONINFORMATION);
 			else if (SendMessage(hListBox, LB_FINDSTRING, -1, (LPARAM)sz_buffer) == LB_ERR)
 				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)sz_buffer);
 			else
