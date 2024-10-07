@@ -35,6 +35,15 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG_ADD_ITEM), hwnd, (DLGPROC)DlgProcAdd, 0);
 			break;
 
+		case IDC_BUTTON_DELETE:
+		{
+			CONST INT SIZE = 256;
+			CHAR sz_buffer[SIZE]{};
+			HWND hList = GetDlgItem(hwnd, IDC_LIST1);
+			INT i = SendMessage(hList, LB_GETCURSEL, 0, 0);
+			SendMessage(hList, LB_DELETESTRING, i, 0);
+		}
+		break;
 		case IDOK:
 		{
 			HWND hCombo = GetDlgItem(hwnd, IDC_LIST1);
@@ -77,12 +86,14 @@ BOOL CALLBACK DlgProcAdd(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			SendMessage(GetDlgItem(hwnd, IDC_EDIT_NAME), WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
 			HWND hParent = GetParent(hwnd);
 			HWND hListBox = GetDlgItem(hParent, IDC_LIST1);
-			if (SendMessage(hListBox, LB_FINDSTRING, -1, (LPARAM)sz_buffer) == LB_ERR)
+			if (strcmp(sz_buffer,"")==0)
+				MessageBox(hwnd, "Вы пытаетесь ввести пустую строку", "Info", MB_OK | MB_ICONINFORMATION);
+			else if (SendMessage(hListBox, LB_FINDSTRING, -1, (LPARAM)sz_buffer) == LB_ERR)
 				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)sz_buffer);
 			else
 				MessageBox(hwnd, "Такое поле уже существует", "Info", MB_OK | MB_ICONINFORMATION);
 		}
-			
+
 		case IDCANCEL:
 			EndDialog(hwnd, 0);
 			break;
