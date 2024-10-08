@@ -55,8 +55,8 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		case IDC_BUTTON_DELETE:
 		{
-			CONST INT SIZE = 256;
-			CHAR sz_buffer[SIZE]{};
+			/*CONST INT SIZE = 256;
+			CHAR sz_buffer[SIZE]{};*/
 			HWND hList = GetDlgItem(hwnd, IDC_LIST1);
 			INT i = SendMessage(hList, LB_GETCURSEL, 0, 0);
 			SendMessage(hList, LB_DELETESTRING, i, 0);
@@ -140,6 +140,7 @@ BOOL CALLBACK DlgProcChange(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		SendMessage(hwnd, WM_SETTEXT, 0, (LPARAM)"Изменить");
 		SendMessageA(GetDlgItem(hwnd, IDOK), WM_SETTEXT, 0, (LPARAM)"Сохранить");
+        SendMessage(GetDlgItem(hwnd, IDC_STATIC_INVITE), WM_SETTEXT, 0, (LPARAM)"Внесите изменения");
 
 		CONST INT SIZE = 256;
 		CHAR sz_buffer[SIZE]{};
