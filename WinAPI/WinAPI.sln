@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainWindow", "MainWindow\Ma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FeedbackGenerator", "FeedbackGenerator\FeedbackGenerator.vcxproj", "{50184086-7CFA-4C5C-A2DE-18679AFBD615}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calc", "Calc\Calc.vcxproj", "{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x64.Build.0 = Release|x64
 		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x86.ActiveCfg = Release|Win32
 		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x86.Build.0 = Release|Win32
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Debug|x64.ActiveCfg = Debug|x64
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Debug|x64.Build.0 = Debug|x64
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Debug|x86.Build.0 = Debug|Win32
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Release|x64.ActiveCfg = Release|x64
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Release|x64.Build.0 = Release|x64
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Release|x86.ActiveCfg = Release|Win32
+		{EB0CED0C-DA65-4C55-9CD4-D33D6D3240B5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
