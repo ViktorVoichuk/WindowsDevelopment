@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListBox", "ListBox\ListBox.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainWindow", "MainWindow\MainWindow.vcxproj", "{FEFA14EF-0842-4443-8085-F3A5369E04F3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FeedbackGenerator", "FeedbackGenerator\FeedbackGenerator.vcxproj", "{50184086-7CFA-4C5C-A2DE-18679AFBD615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{FEFA14EF-0842-4443-8085-F3A5369E04F3}.Release|x64.Build.0 = Release|x64
 		{FEFA14EF-0842-4443-8085-F3A5369E04F3}.Release|x86.ActiveCfg = Release|Win32
 		{FEFA14EF-0842-4443-8085-F3A5369E04F3}.Release|x86.Build.0 = Release|Win32
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Debug|x64.ActiveCfg = Debug|x64
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Debug|x64.Build.0 = Debug|x64
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Debug|x86.ActiveCfg = Debug|Win32
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Debug|x86.Build.0 = Debug|Win32
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x64.ActiveCfg = Release|x64
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x64.Build.0 = Release|x64
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x86.ActiveCfg = Release|Win32
+		{50184086-7CFA-4C5C-A2DE-18679AFBD615}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
