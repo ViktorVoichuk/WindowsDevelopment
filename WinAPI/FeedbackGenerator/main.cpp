@@ -23,14 +23,17 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
     {
+
     case WM_INITDIALOG:
     {
         SendMessage(GetDlgItem(hwnd, IDC_EDIT_NAME), WM_SETTEXT, 0, (LPARAM)"Введите Фамилию Имя Отчество поностью");
     }
     break;
+
     case WM_COMMAND:
         switch (LOWORD(wParam))
         {
+
         case IDOK:
         {
             CONST INT SIZE_DESCR = 2048, SIZE = 256;
@@ -45,7 +48,6 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             }
             else
             {
-                
                 strcpy(sz_description, sz_fullname);
                 sprintf(sz_fullname, "Характеристики студента: %s", sz_description);
                 SendMessage(GetDlgItem(hwnd, IDC_STATIC_CHARACTER), WM_SETTEXT, 0, (LPARAM)sz_fullname);
@@ -60,13 +62,16 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+
         case IDCANCEL:
             EndDialog(hwnd, 0);
             break;
         }
         break;
+
     case WM_CLOSE:
         EndDialog(hwnd, 0);
     }
+
     return FALSE;
 }
