@@ -1,6 +1,6 @@
 ﻿#include <windows.h>
 #include <cstdio>
-#include <windowsx.h>
+
 
 #define IDC_STATIC 1000  //1) Создаем ResourxeID для дочернего элемента
 #define IDC_EDIT 1001
