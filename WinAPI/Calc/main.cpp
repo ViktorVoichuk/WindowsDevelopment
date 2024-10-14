@@ -33,8 +33,8 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
     wClass.cbClsExtra = 0;
     wClass.cbWndExtra = 0;
 
-    wClass.hIcon = LoadIcon(hInstance, IDI_APPLICATION);
-    wClass.hIconSm = LoadIcon(hInstance, IDI_APPLICATION);
+    wClass.hIcon = (HICON)LoadImage(hInstance, "ICO\\Calc.ico", IMAGE_ICON, LR_DEFAULTSIZE, LR_DEFAULTSIZE, LR_LOADFROMFILE);
+    wClass.hIconSm = (HICON)LoadImage(hInstance, "ICO\\Calc.ico", IMAGE_ICON, LR_DEFAULTSIZE, LR_DEFAULTSIZE, LR_LOADFROMFILE);
     wClass.hCursor = LoadCursor(hInstance, IDC_ARROW);
     wClass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 
