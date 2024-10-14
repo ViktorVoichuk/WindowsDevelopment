@@ -1,4 +1,6 @@
 ﻿#include <windows.h>
+#include <cstdio>
+#include <windowsx.h>
 
 #define IDC_STATIC 1000  //1) Создаем ResourxeID для дочернего элемента
 #define IDC_EDIT 1001
@@ -37,6 +39,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
     }
 
     //2 - создание окна
+
     HWND hwnd = CreateWindowEx
     (
         NULL,//Window ExStyle
@@ -115,8 +118,18 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             GetModuleHandle(NULL),
             NULL
         );
-        
+
         break;
+    }
+    case WM_SIZE:
+    case WM_MOVE:
+    {
+        CONST INT SIZE = 256;
+        CHAR sz_title[SIZE]{};
+        RECT rect;
+        GetWindowRect(hwnd, &rect);
+        sprintf(sz_title, "%s Позиция окна: %ix%i. Размер окна: %ix%i", g_sz_WINDOW_CLASS, rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+        SendMessage(hwnd, WM_SETTEXT, 0, (LPARAM)sz_title);
     }
     case WM_COMMAND:
     {
@@ -133,7 +146,7 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             SendMessageA(hStatic, WM_SETTEXT, 0, (LPARAM)sz_buffer);
             SendMessageA(hwnd, WM_SETTEXT, 0, (LPARAM)sz_buffer);
         }
-            break;
+        break;
         }
         break;
     }

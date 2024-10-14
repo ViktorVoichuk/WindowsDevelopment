@@ -1,7 +1,5 @@
-﻿# include <Windows.h>
+﻿#include <Windows.h>
 #include "resource.h"
-
-
 
 CONST CHAR g_sz_WINDOW_CLASS[] = "Calc";
 
@@ -19,13 +17,12 @@ CONST INT g_OPERATIONS_START_Y = g_BUTTON_START_Y;
 CONST INT g_CONTROL_BUTTONS_START_X = g_START_X + (g_BUTTON_SIZE + g_INTERVAL) * 4;
 CONST INT g_CONTROL_BUTTONS_START_Y = g_BUTTON_START_Y;
 
-
 CONST CHAR g_OPERATIONS[] = "*/-+";
 
 
 BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
+ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
 {
     //1)Регистрация класса окна
     WNDCLASSEX wClass;
@@ -154,7 +151,7 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 g_OPERATIONS_START_X, g_OPERATIONS_START_Y + (g_BUTTON_SIZE + g_INTERVAL) * i,
                 g_BUTTON_SIZE, g_BUTTON_SIZE,
                 hwnd,
-                (HMENU)IDC_BUTTON_PLUS + i,
+                (HMENU)IDC_BUTTON_ASTER + i,
                 GetModuleHandle(NULL),
                 NULL
             );
@@ -200,10 +197,12 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
     case WM_COMMAND:
     {
+
         CONST INT SIZE = 256;
         CHAR sz_display[SIZE]{};
         CHAR sz_digit[2]{};
         HWND hEditDisplay = GetDlgItem(hwnd, IDC_EDIT_DISPLAY);
+
         if (LOWORD(wParam) >= IDC_BUTTON_0 && LOWORD(wParam) <= IDC_BUTTON_9)
         {
             sz_digit[0] = LOWORD(wParam) - IDC_BUTTON_0 + 48;
@@ -215,6 +214,7 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             strcat(sz_display, sz_digit);//Функция strcat(dst,src) выполняет конкатенацию строк, а именно к строку dst добавляет строку src
             SendMessage(hEditDisplay, WM_SETTEXT, 0, (LPARAM)sz_display);
         }
+
         if (LOWORD(wParam) == IDC_BUTTON_POINT)
         {
             SendMessageA(hEditDisplay, WM_GETTEXT, SIZE, (LPARAM)sz_display);
@@ -222,6 +222,7 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             strcat(sz_display, ".");
             SendMessageA(hEditDisplay, WM_SETTEXT, 0, (LPARAM)sz_display);
         }
+
         if (LOWORD(wParam) == IDC_BUTTON_BSP)
         {
             SendMessageA(hEditDisplay, WM_GETTEXT, SIZE, (LPARAM)sz_display);
@@ -229,13 +230,16 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             else sz_display[strlen(sz_display) - 1] = 0;
             SendMessageA(hEditDisplay, WM_SETTEXT, 0, (LPARAM)sz_display);
         }
-        if (LOWORD(wParam)==IDC_BUTTON_CLEAR)
+
+        if (LOWORD(wParam) == IDC_BUTTON_CLEAR)
         {
             sz_display[0] = '0';
             SendMessageA(hEditDisplay, WM_SETTEXT, 0, (LPARAM)sz_display);
         }
+
     }
     break;
+
     case WM_DESTROY:
         PostQuitMessage(0);
 
